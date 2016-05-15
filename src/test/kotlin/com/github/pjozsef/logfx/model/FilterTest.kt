@@ -3,10 +3,10 @@ package com.github.pjozsef.logfx.model
 import org.junit.Assert.*
 import org.junit.Test
 
-class FilterTest{
+class FilterTest {
 
     @Test
-    fun operationOf(){
+    fun operationOf() {
         assertEquals(Operation.INCLUDE, Operation.of("+"))
         assertEquals(Operation.EXCLUDE, Operation.of("-"))
 
@@ -19,7 +19,7 @@ class FilterTest{
     }
 
     @Test
-    fun highlightOf(){
+    fun highlightOf() {
         assertEquals(Highlight.RED, Highlight.of("red"))
         assertEquals(Highlight.RED, Highlight.of("r"))
         assertEquals(Highlight.ORANGE, Highlight.of("orange"))
@@ -43,7 +43,7 @@ class FilterTest{
     }
 
     @Test
-    fun filterOf(){
+    fun filterOf() {
         assertEquals(
                 Filter("com.github.* spaces in regex"),
                 Filter.of("com.github.* spaces in regex"))
@@ -60,6 +60,9 @@ class FilterTest{
                 Filter("com.github.* spaces in regex", Operation.INCLUDE, Highlight.YELLOW),
                 Filter.of("+ yellow com.github.* spaces in regex"))
 
+        assertEquals(Filter("+", Operation.INCLUDE), Filter.of("+ +"))
+        assertEquals(Filter("+"), Filter.of("+"))
         assertEquals(Filter(""), Filter.of(""))
+        assertEquals(Filter("   "), Filter.of("   "))
     }
 }

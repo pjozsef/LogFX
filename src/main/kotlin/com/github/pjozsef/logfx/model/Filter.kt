@@ -7,27 +7,22 @@ data class Filter(
         val operation: Operation? = null,
         val color: Highlight? = null) {
 
-    companion object{
+    companion object {
         fun of(raw: String): Filter {
-            val tokens = raw.split(" ")
-            var cursor = 0
-
-            val operation = Operation.of(tokens[cursor])
-            operation?.let { cursor++ }
-            val color = Highlight.of(tokens[cursor])
-            color?.let { cursor++ }
-            val regex = tokens.subList(cursor, tokens.size).joinToString(" ")
-            return Filter(regex, operation, color)
+            val tokens = raw.trim().split(" ")
+            if (tokens.size > 1) {
+                var cursor = 0
+                val operation = Operation.of(tokens[cursor])
+                operation?.let { cursor++ }
+                val color = Highlight.of(tokens[cursor])
+                color?.let { cursor++ }
+                val regex = tokens.subList(cursor, tokens.size).joinToString(" ")
+                return Filter(regex, operation, color)
+            }
+            return Filter(raw)
         }
     }
 }
-/*
-fun List<Filter>.normalize(): List<Filter>{
-    val containsInclude = this.any{it.operation == Operation.INCLUDE}
-    if(containsInclude){
-
-    }
-}*/
 
 enum class Operation(val symbol: String) {
     INCLUDE("+"), EXCLUDE("-");
