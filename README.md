@@ -1,2 +1,2 @@
-# Kotlinjfx
-Starter project for kotlin with javafx and gradle
+# LogFX
+A log file reader written in TornadoFX (JavaFX + Kotlin)
