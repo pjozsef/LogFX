@@ -10,7 +10,7 @@ import java.io.FileReader
 import java.io.LineNumberReader
 import java.util.*
 
-class FileLoadController : Controller() {
+class FileController : Controller() {
     private var lastSelected: File? = null
     fun chooseFile(): File? {
         val fileChooser = FileChooser();

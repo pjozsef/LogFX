@@ -6,7 +6,7 @@ package com.github.pjozsef.logfx.view
 
 import com.github.pjozsef.logfx.adapter.Row
 import com.github.pjozsef.logfx.adapter.RowCell
-import com.github.pjozsef.logfx.controller.FileLoadController
+import com.github.pjozsef.logfx.controller.FileController
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXListView
 import com.jfoenix.controls.JFXTextArea
@@ -30,7 +30,7 @@ class MainView : View() {
     val rules: JFXTextArea by fxid()
     val lines: ListView<Row> by fxid()
 
-    val fileLoader: FileLoadController by inject()
+    val fileLoader: FileController by inject()
 
     init {
         setupOpenButton()
