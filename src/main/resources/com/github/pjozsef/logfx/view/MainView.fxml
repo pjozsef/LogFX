@@ -8,8 +8,8 @@
    <right>
       <VBox>
          <children>
-            <JFXButton fx:id="btnOpen" buttonType="FLAT" ripplerFill="#a88686" text="%button_open_text" />
-            <JFXTextArea fx:id="areaRules" />
+            <JFXButton fx:id="open" buttonType="FLAT" ripplerFill="#a88686" text="%button_open_text" />
+            <JFXTextArea fx:id="rules"/>
          </children>
       </VBox>
    </right>
