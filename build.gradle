@@ -25,7 +25,7 @@ dependencies {
     compile 'no.tornado:tornadofx:1.4.6'
     compile 'nl.komponents.kovenant:kovenant:3.2.2'
     compile 'nl.komponents.kovenant:kovenant-ui:3.2.2'
-    compile 'io.reactivex:rxjavafx:0.0.6'
+    compile 'com.github.thomasnield:rxkotlinfx:0.0.5'
     compile fileTree(dir: 'libs', include: '*.jar')
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
