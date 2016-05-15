@@ -24,6 +24,7 @@ dependencies {
     compile 'org.jetbrains.kotlin:kotlin-compiler:1.0.2'
     compile 'no.tornado:tornadofx:1.4.6'
     compile 'nl.komponents.kovenant:kovenant:3.2.2'
+    compile 'nl.komponents.kovenant:kovenant-ui:3.2.2'
     compile 'io.reactivex:rxjavafx:0.0.6'
     compile fileTree(dir: 'libs', include: '*.jar')
 
