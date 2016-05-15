@@ -11,10 +11,14 @@ import java.io.LineNumberReader
 import java.util.*
 
 class FileLoadController : Controller() {
+    private var lastSelected: File? = null
     fun chooseFile(): File? {
         val fileChooser = FileChooser();
+        lastSelected?.let{fileChooser.initialDirectory = it.parentFile}
         fileChooser.title = messages["filedialog_open_text"];
-        return fileChooser.showOpenDialog(FX.primaryStage);
+        val selected =  fileChooser.showOpenDialog(FX.primaryStage);
+        selected?.let{ lastSelected = it }
+        return selected
     }
 
     fun readFile(file: File?): List<Row>? {
