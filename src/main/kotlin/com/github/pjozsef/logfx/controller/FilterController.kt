@@ -1,10 +1,8 @@
 package com.github.pjozsef.logfx.controller
 
+import com.github.pjozsef.logfx.adapter.Row
 import com.github.pjozsef.logfx.model.Filter
 import com.github.pjozsef.logfx.model.Operation
-import com.github.pjozsef.extension.core.bool.invoke
-import com.github.pjozsef.logfx.adapter.Row
-import org.jetbrains.kotlin.utils.alwaysTrue
 import tornadofx.Controller
 import java.util.function.Predicate
 
