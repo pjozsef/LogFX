@@ -2,7 +2,7 @@ package com.github.pjozsef.logfx.style
 
 import tornadofx.*
 
-class ListViewStyle : Stylesheet() {
+class ListStyle : Stylesheet() {
     companion object {
         // Define our styles
         /*val wrapper by cssclass()
@@ -22,6 +22,7 @@ class ListViewStyle : Stylesheet() {
             padding = box(0.px)
             fontFamily = arrayOf("monospace")
         }
+
 
 
 

@@ -1,6 +1,6 @@
 package com.github.pjozsef.logfx
 
-import com.github.pjozsef.logfx.style.ListViewStyle
+import com.github.pjozsef.logfx.style.ListStyle
 import com.github.pjozsef.logfx.view.MainView
 import javafx.application.Application
 import javafx.application.Platform
@@ -29,7 +29,7 @@ class LogFxApp : App() {
             }
         }
 
-        importStylesheet(ListViewStyle::class)
+        importStylesheet(ListStyle::class)
         reloadStylesheetsOnFocus()
     }
 }
