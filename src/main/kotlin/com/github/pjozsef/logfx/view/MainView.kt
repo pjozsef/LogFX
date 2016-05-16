@@ -9,32 +9,25 @@ import com.github.pjozsef.logfx.adapter.RowCell
 import com.github.pjozsef.logfx.controller.FileController
 import com.github.pjozsef.logfx.controller.FilterController
 import com.github.pjozsef.logfx.model.Highlight
-import com.jfoenix.controls.JFXButton
-import com.jfoenix.controls.JFXTextArea
 import javafx.application.Platform
 import javafx.collections.FXCollections
-import javafx.collections.ObservableList
-import javafx.collections.transformation.FilteredList
+import javafx.scene.control.Button
 import javafx.scene.control.ListCell
 import javafx.scene.control.ListView
+import javafx.scene.control.TextArea
 import javafx.scene.layout.BorderPane
 import javafx.util.Callback
 import nl.komponents.kovenant.then
 import nl.komponents.kovenant.ui.promiseOnUi
 import nl.komponents.kovenant.ui.successUi
-import org.jetbrains.kotlin.utils.alwaysTrue
-import rx.javafx.kt.doOnNextFx
-import rx.javafx.kt.observeOnFx
-import rx.javafx.kt.subscribeOnFx
 import rx.javafx.kt.toObservable
 import tornadofx.View
 import java.util.concurrent.TimeUnit
-import java.util.function.Predicate
 
 class MainView : View() {
     override val root: BorderPane by fxml()
-    val open: JFXButton by fxid()
-    val rules: JFXTextArea by fxid()
+    val open: Button by fxid()
+    val rules: TextArea by fxid()
     val lines: ListView<Row> by fxid()
 
     val fileLoader: FileController by inject()

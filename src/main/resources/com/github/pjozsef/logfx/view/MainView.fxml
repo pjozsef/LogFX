@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.ListView?>
-<BorderPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" >
-   <right>
-      <VBox>
-         <children>
-            <JFXButton fx:id="open" buttonType="FLAT" ripplerFill="#a88686" text="%button_open_text" />
-            <JFXTextArea fx:id="rules" prefWidth="250"/>
-         </children>
-      </VBox>
-   </right>
-   <center>
-       <ListView fx:id="lines" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;"/>
-   </center>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <children>
+                <Button fx:id="open" text="%button_open_text"/>
+                <TextArea fx:id="rules" prefWidth="250"/>
+            </children>
+        </VBox>
+    </right>
+    <center>
+        <ListView fx:id="lines" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;"/>
+    </center>
 </BorderPane>
