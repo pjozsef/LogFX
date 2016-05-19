@@ -7,8 +7,6 @@
            orientation="VERTICAL"
            xmlns="http://javafx.com/javafx/8.0.91"
            xmlns:fx="http://javafx.com/fxml/1">
-    <items>
-        <ListView fx:id="lines" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" />
-        <TextArea fx:id="rules" />
-    </items>
+    <ListView fx:id="lines" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;"/>
+    <TextArea fx:id="rules"/>
 </SplitPane>
