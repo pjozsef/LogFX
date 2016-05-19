@@ -13,9 +13,9 @@ class FilterTest {
         assertNotEquals(Operation.EXCLUDE, Operation.of("+"))
         assertNotEquals(Operation.INCLUDE, Operation.of("-"))
 
-        assertNull(Operation.of(""))
-        assertNull(Operation.of(" "))
-        assertNull(Operation.of("dummy"))
+        assertEquals(Operation.NONE, Operation.of(""))
+        assertEquals(Operation.NONE, Operation.of(" "))
+        assertEquals(Operation.NONE, Operation.of("dummy"))
     }
 
     @Test
@@ -37,9 +37,9 @@ class FilterTest {
         assertEquals(Highlight.MAGENTA, Highlight.of("magenta"))
         assertEquals(Highlight.MAGENTA, Highlight.of("m"))
 
-        assertNull(Highlight.of(""))
-        assertNull(Highlight.of(" "))
-        assertNull(Highlight.of("dummy"))
+        assertEquals(Highlight.BASE, Highlight.of(""))
+        assertEquals(Highlight.BASE, Highlight.of(" "))
+        assertEquals(Highlight.BASE, Highlight.of("dummy"))
     }
 
     @Test
@@ -51,18 +51,18 @@ class FilterTest {
                 Filter("com.github.* spaces in regex", Operation.EXCLUDE),
                 Filter.of("- com.github.* spaces in regex"))
         assertEquals(
-                Filter("com.github.* spaces in regex", null, Highlight.BLUE),
+                Filter("com.github.* spaces in regex", Operation.NONE, Highlight.BLUE),
                 Filter.of("blue com.github.* spaces in regex"))
         assertEquals(
-                Filter("com.github.* spaces in regex", null, Highlight.BLUE),
+                Filter("com.github.* spaces in regex", Operation.NONE, Highlight.BLUE),
                 Filter.of("b com.github.* spaces in regex"))
         assertEquals(
                 Filter("com.github.* spaces in regex", Operation.INCLUDE, Highlight.YELLOW),
                 Filter.of("+ yellow com.github.* spaces in regex"))
 
         assertEquals(Filter("+", Operation.INCLUDE), Filter.of("+ +"))
-        assertEquals(Filter("+"), Filter.of("+"))
-        assertEquals(Filter(""), Filter.of(""))
-        assertEquals(Filter("   "), Filter.of("   "))
+        assertNull(Filter.of("+"))
+        assertNull(Filter.of(""))
+        assertNull(Filter.of("         "))
     }
 }
