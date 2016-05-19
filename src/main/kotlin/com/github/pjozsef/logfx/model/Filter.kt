@@ -5,7 +5,7 @@ import javafx.scene.paint.Color
 data class Filter(
         val searchText: String,
         val operation: Operation = Operation.NONE,
-        val color: Highlight = Highlight.BASE) {
+        val highlight: Highlight = Highlight.BASE) {
 
     companion object {
         fun of(raw: String): Filter? {
