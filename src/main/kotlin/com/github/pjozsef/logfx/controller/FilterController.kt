@@ -40,7 +40,7 @@ class FilterController : Controller() {
                         when (it.operation) {
                             Operation.INCLUDE -> matches
                             Operation.EXCLUDE -> !matches
-                            else -> error("This should not have occoured!")
+                            else -> error("This should not have occurred!")
                         }
                     }.reduce { sum, next -> sum || next }
                 } else {

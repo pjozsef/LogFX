@@ -1,7 +1,3 @@
-/**
- * Created by hunyadym on 2016. 02. 10..
- */
-
 package com.github.pjozsef.logfx.view
 
 import com.github.pjozsef.logfx.controller.FileController

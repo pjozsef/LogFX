@@ -4,10 +4,9 @@ import com.github.pjozsef.logfx.style.ListStyle
 import com.github.pjozsef.logfx.view.MainView
 import javafx.application.Application
 import javafx.application.Platform
-import nl.komponents.kovenant.Dispatcher
 import nl.komponents.kovenant.ProcessAwareDispatcher
-import tornadofx.App
 import nl.komponents.kovenant.ui.KovenantUi
+import tornadofx.App
 import tornadofx.importStylesheet
 import tornadofx.reloadStylesheetsOnFocus
 
