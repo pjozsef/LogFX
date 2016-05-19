@@ -17,7 +17,7 @@ class RowCell : ListCell<Row>() {
     val root = HBox(lineNumber, content)
 
     init {
-        lineNumber.prefWidth = 30.0
+        lineNumber.prefWidth = 55.0
     }
 
     override fun updateItem(item: Row?, empty: Boolean) {

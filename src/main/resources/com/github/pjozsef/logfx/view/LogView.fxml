@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<SplitPane dividerPositions="0.9"
+           orientation="VERTICAL"
+           xmlns="http://javafx.com/javafx/8.0.91"
+           xmlns:fx="http://javafx.com/fxml/1">
+    <items>
+        <ListView fx:id="lines" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" />
+        <TextArea fx:id="rules" />
+    </items>
+</SplitPane>
