@@ -44,9 +44,7 @@ class LogView : View(){
         rules.textProperty()
                 .toObservable()
                 .sample(200, TimeUnit.MILLISECONDS)
-                .map { filterController.toFilterList(it) }
-                .map { filterController.normalized(it) }
-                .map { filterController.toPredicate(it) }
+                .map { filterController.getPredicate(it) }
                 .forEach { predicate ->
                     Platform.runLater {
                         baseList.forEach { it.color = Highlight.BASE }
