@@ -5,6 +5,7 @@ import com.github.pjozsef.logfx.adapter.RowCell
 import com.github.pjozsef.logfx.controller.FilterController
 import com.github.pjozsef.logfx.model.Highlight
 import javafx.application.Platform
+import javafx.beans.property.SimpleObjectProperty
 import javafx.collections.FXCollections
 import javafx.scene.control.ListCell
 import javafx.scene.control.ListView
@@ -14,6 +15,7 @@ import javafx.util.Callback
 import rx.javafx.kt.toObservable
 import tornadofx.View
 import java.util.concurrent.TimeUnit
+import java.util.function.Predicate
 
 class LogView : View(){
     override val root: SplitPane by fxml()
@@ -22,7 +24,9 @@ class LogView : View(){
 
     private val filterController: FilterController by inject()
 
+    private val fileLoadedProperty = SimpleObjectProperty(Object())
     private var baseList: List<Row> = listOf()
+
 
     init {
         setupListView()
@@ -32,7 +36,7 @@ class LogView : View(){
     fun setContent(rows: List<Row>?){
         rows?.let{
             baseList = it
-            lines.items = FXCollections.observableArrayList(baseList)
+            fileLoadedProperty.value = Object()
         }
     }
 
@@ -41,17 +45,24 @@ class LogView : View(){
     }
 
     private fun setupRulesArea() {
+        val onLoad = fileLoadedProperty.toObservable().map { rules.text }
         rules.textProperty()
                 .toObservable()
+                .mergeWith(onLoad)
                 .sample(200, TimeUnit.MILLISECONDS)
                 .map { filterController.getPredicate(it) }
                 .forEach { predicate ->
                     Platform.runLater {
-                        baseList.forEach { it.color = Highlight.BASE }
-                        val filtered = baseList.filter { predicate.test(it) }
-                        lines.items = FXCollections.observableArrayList(filtered)
-                        lines.refresh()
+                        filterBaseList(predicate)
                     }
                 }
     }
+
+    private fun filterBaseList(predicate: Predicate<Row> = Predicate{true}){
+        baseList.forEach { it.color = Highlight.BASE }
+        val filtered = baseList.filter { predicate.test(it) }
+        lines.items = FXCollections.observableArrayList(filtered)
+        lines.refresh()
+    }
+
 }
