@@ -61,6 +61,7 @@ class FilterTest {
                 Filter.of("+ yellow com.github.* spaces in regex"))
 
         assertEquals(Filter("+", Operation.INCLUDE), Filter.of("+ +"))
+        assertEquals(Filter("r", Operation.INCLUDE), Filter.of("+ r"))
         assertNull(Filter.of("+"))
         assertNull(Filter.of(""))
         assertNull(Filter.of("         "))
